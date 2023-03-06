@@ -6,15 +6,19 @@ import com.lung.flightcheckin.flightcheckin.integration.dto.ReservationUpdateReq
 import org.springframework.web.client.RestTemplate;
 
 public class ReservationRestClientImpl implements ReservationRestClient {
+    // the url static variable
+    private static final String RESERVATION_REST_URL = "http://localhost:8080/flightreservationmgt/";
     @Override
     public Reservation findReservation(int id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject("http://localhost:8080/flightreservationmgt/"+id,
+        return restTemplate.getForObject(RESERVATION_REST_URL+id,
                 Reservation.class);
     }
 
     @Override
     public Reservation updateReservation(ReservationUpdateRequest reservationUpdateRequest) {
-        return null;
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.patchForObject(RESERVATION_REST_URL,
+                reservationUpdateRequest, Reservation.class);
     }
 }
