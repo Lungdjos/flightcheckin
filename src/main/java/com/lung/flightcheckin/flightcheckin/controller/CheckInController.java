@@ -32,7 +32,7 @@ public class CheckInController {
     // methods to complete check in
     @RequestMapping("/completeCheckIn")
     public String completeCheckIn(@RequestParam("reservationId") int reservationId,
-                                  @RequestParam("numberOfBags") int numberOfBags){
+                                  @RequestParam("numberOfBags") int numberOfBags, ModelMap modelMap){
         // creating an object of the update class
         ReservationUpdateRequest reservationUpdateRequest = new ReservationUpdateRequest();
         reservationUpdateRequest.setId(reservationId);
@@ -41,6 +41,9 @@ public class CheckInController {
 
         // calling the update method
         reservationRestClient.updateReservation(reservationUpdateRequest);
+
+        Reservation reservation = reservationRestClient.findReservation(reservationId);
+        modelMap.addAttribute("reservation", reservation);
         return "checkInConfirmation";
     }
 }
