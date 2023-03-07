@@ -2,6 +2,7 @@ package com.lung.flightcheckin.flightcheckin.controller;
 
 import com.lung.flightcheckin.flightcheckin.integration.ReservationRestClient;
 import com.lung.flightcheckin.flightcheckin.integration.dto.Reservation;
+import com.lung.flightcheckin.flightcheckin.integration.dto.ReservationUpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,5 +27,20 @@ public class CheckInController {
         Reservation reservation = reservationRestClient.findReservation(reservationId);
         modelMap.addAttribute("reservation", reservation);
         return "displayReservationDetails";
+    }
+
+    // methods to complete check in
+    @RequestMapping("/completeCheckIn")
+    public String completeCheckIn(@RequestParam("reservationId") int reservationId,
+                                  @RequestParam("numberOfBags") int numberOfBags){
+        // creating an object of the update class
+        ReservationUpdateRequest reservationUpdateRequest = new ReservationUpdateRequest();
+        reservationUpdateRequest.setId(reservationId);
+        reservationUpdateRequest.setCheckedIn(true);
+        reservationUpdateRequest.setNumberOfBags(numberOfBags);
+
+        // calling the update method
+        reservationRestClient.updateReservation(reservationUpdateRequest);
+        return "checkInConfirmation";
     }
 }

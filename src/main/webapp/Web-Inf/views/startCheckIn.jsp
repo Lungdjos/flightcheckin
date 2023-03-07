@@ -16,7 +16,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body class="m-5"
+<body class="m-5">
     <div class="row mt-5 align-items-center justify-content-center">
         <div class="col-md-4 m-3">
             <div class="card shadow border-0">

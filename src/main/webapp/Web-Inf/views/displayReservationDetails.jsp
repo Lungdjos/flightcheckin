@@ -36,15 +36,13 @@
     <p><label>Phone No.:</label>    ${reservation.passenger.phone}</p>
     <hr>
 
-
-
     <form action="completeCheckIn" method="post">
         <div class="form-group mb-3">
           <label for="from">No. of Bags:</label>
-          <input type="text" name="passengerFirstName" value="" class="form-control" id="" placeholder="Enter Number of Bags" required>
+          <input type="text" name="numberOfBags" value="" class="form-control" id="" placeholder="Enter Number of Bags" required>
         </div>
         <div class="form-group mb-3">
-          <input type="hidden" name="" value="${reservation.id}" class="form-control" id="" placeholder="Last Name" required>
+          <input type="hidden" name="reservationId" value="${reservation.id}" class="form-control" id="" placeholder="Reservation Id" required>
         </div>
         <hr>
 

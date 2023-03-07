@@ -8,8 +8,8 @@ public class Reservation{
     private int id;
     private boolean checkedIn;
     private int numberOfBags;
-    private Passenger passengerId;
-    private Flight flightId;
+    private Passenger passenger;
+    private Flight flight;
     private Timestamp created;
 
     // getters and setters
@@ -38,20 +38,20 @@ public class Reservation{
         this.numberOfBags = numberOfBags;
     }
 
-    public Passenger getPassengerId() {
-        return passengerId;
+    public Passenger getPassenger() {
+        return passenger;
     }
 
-    public void setPassengerId(Passenger passengerId) {
-        this.passengerId = passengerId;
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
     }
 
-    public Flight getFlightId() {
-        return flightId;
+    public Flight getFlight() {
+        return flight;
     }
 
-    public void setFlightId(Flight flightId) {
-        this.flightId = flightId;
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 
     public Timestamp getCreated() {
